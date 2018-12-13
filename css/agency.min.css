@@ -1,5 +1,18 @@
 /*!* Start Bootstrap - Agency v5.0.2 (https://startbootstrap.com/template-overviews/agency)* Copyright 2013-2018 Start Bootstrap* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)*/
 
+.column9 {
+  float: left;
+  width: 50%;
+  padding-left: 10%;
+}
+
+/* Clear floats after the columns */
+.row9:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 section h3.section-subheading2{
 	font-size:20px;
 	font-weight:400;
@@ -25,8 +38,7 @@ section h3.section-subheading2{
     background-image:url(/img/page2.png);
     background-repeat:no-repeat;
 	background-attachment:scroll;
-	background-position:center;
-	background-size:cover
+	background-size:cover;
 }
 
 .roboto {
@@ -68,9 +80,13 @@ a:hover{
 .text-primary{
 	color:#007AFF!important
 }
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5{
 	font-weight:700;
 	font-family: 'Roboto', sans-serif;
+}
+
+h6{
+    font-family: 'Roboto', sans-serif;
 }
 section{
 	padding:100px 0
@@ -249,7 +265,7 @@ header.masthead .intro-text .intro-heading{
 }
 
 #portfolio{
-    background-image:url(/img/background1.png);
+    background-image:url(/img/background3.png);
     background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:center;
@@ -554,7 +570,7 @@ header.masthead .intro-text .intro-heading{
 }
 }
 #team{
-    background-image:url(/img/background3.png);
+    background-image:url(/img/background0.png);
     background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:center;
@@ -683,9 +699,13 @@ a:hover{
 .text-primary{
 	color:#007AFF!important
 }
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5{
 	font-weight:700;
 	font-family: 'Roboto Mono', monospace;
+}
+h6{
+    font-weight:700;
+    font-family: 'Roboto', sans-serif;
 }
 section{
 	padding:100px 0
