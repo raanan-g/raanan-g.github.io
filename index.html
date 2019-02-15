@@ -29,7 +29,7 @@
     <link rel="icon" href="/img/logo.png">
     
     <!-- Mapbox API -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
   </head>
@@ -104,18 +104,9 @@
     </header>
 
     <!-- Interactive Map -->
-    <section class="map">
+    <section>
       <div class="container">
-        <div id='map'></div>
-        <script>
-          mapboxgl.accessToken = 'pk.eyJ1IjoicmFhbmFuLWciLCJhIjoiY2pyMWF5YzM4MDBseTQzcXEyZ3gxN2xvOSJ9.Jm_gHZ3zcJh2xygKeOdr5w';
-          const map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/raanan-g/cjs3vdafw04bb1fmtnqdivns0',
-          center: [-79.990100, 40.441700],
-          zoom: 10.0
-          });
-        </script>
+        <div class="map" id='map'></div>
       </div>
     </section>
 
@@ -677,7 +668,8 @@
       }, false);
     })();
     </script>
-
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="mapbox.js"></script>
   </body>
 
 </html>
