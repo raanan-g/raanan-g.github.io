@@ -425,7 +425,8 @@ var options = {
   rectWidth: 35,
   rectHeight: 35
 };
-var format = d3.format(",.2f");
+var format0 = d3.format(",.0f");													
+var format1 = d3.format(",.2f");
 var svg = d3.select('#svg')
   .attr('width', 12 * options.rectWidth)
   .attr('height', 8 * options.rectHeight);
@@ -433,7 +434,7 @@ var svg = d3.select('#svg')
 function counter(x, title) {
 	return "<div class=\"col-md-6\">\
 				<center><div class=\"counter-number\">\
-				   <h2 style=\"margin:0px\"><strong>"+format(x)+"</strong></h2>\
+				   <h2 style=\"margin:0px\"><strong>"+x+"</strong></h2>\
 				</div>\
 			   <small>"+title+"</small></center>\
 			</div>";
@@ -443,8 +444,8 @@ function postData(d, cod, sel, maxm) {
 	d3.select('#hover-state').html("")
 		.html("<center><h6>"+d.name+"</h6><small>"+sel+"</small></center>");
 	d3.select('#hover-headline').html("")
-		.html(counter(d["dths"+cod+"_2016"], "Deaths (2015-2017)")+
-              counter(d["aar"+cod+"_2016"], "Per 100,000"));
+		.html(counter(format0(d["dths"+cod+"_2016"]), "Deaths (2015-2017)")+
+              counter(format1(d["aar"+cod+"_2016"]), "Per 100,000"));
 	
 	var data = [{year:'1980-1984',rate: d["aar"+cod+"_1982"]}, 
 				{year:'1985-1989',rate: d["aar"+cod+"_1987"]},
