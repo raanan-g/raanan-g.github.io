@@ -399,9 +399,12 @@
 															</select>
 														</div>
 													   </div>
-													   <div class="col-md-6">
+													   <div class="col-md-4">
 														<a target="_blank" href="https://github.com/geominr/moira-api" class="btn btn-outline-primary btn-sm">MOIRA API Docs</a>
-																			   </div>
+													   </div>
+													   <div class="col-md-2">
+														<small><a href="https://github.com/raanan-g/PHDL/blob/master/data/moira_data_example.csv" download>Data</a></small>
+													   </div>
 																		   </div>
 
 											   <br>
@@ -422,7 +425,7 @@ var options = {
   rectWidth: 35,
   rectHeight: 35
 };
-var format = d3.format(",.2r");
+var format = d3.format(",.2f");
 var svg = d3.select('#svg')
   .attr('width', 12 * options.rectWidth)
   .attr('height', 8 * options.rectHeight);
