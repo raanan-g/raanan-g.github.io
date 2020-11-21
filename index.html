@@ -4,10 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="image" content="assets/images/geominr_globe.png">
-        <meta name="description" content="Professional Portfolio of Raanan S. Gurewitsch">
-        
-        <title>Raanan Gurewitsch</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Raanan G</title>
         <!-- Favicons-->
         <link rel="shortcut icon" href="assets/images/headshot-removebg-preview.png">
         <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -66,13 +65,20 @@
 			<section class="module" id="crazymap" style="padding: 0px 0px">
 
 <!-- Globe -->
-<div id="content" width="100%" padding="0 0 0 0">
+<div id="content"  onmouseover="mouseOver()" onclick="mapclick()" width="100%" padding="0 0 0 0">
 	<center><canvas width="2000" height="500"></canvas></center>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 <script src="assets/js/versor.js"></script>
 <script>
+
+function mouseOver() {
+	document.getElementById("content").style.cursor = "grab";
+}
+function mapclick() {
+	document.getElementById("content").style.cursor = "grabbing";
+}
 
 var canvas = d3.select("canvas"),
     width = canvas.property("width"),
@@ -125,8 +131,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 
 	  renderEarth = function() {
 		context.clearRect(0, 0, width, height);
-		context.beginPath(), path(sphere), context.fillStyle = "transparent", context.fill();
-		context.beginPath(), path(land), context.fillStyle = "#000", context.fill();
+		context.beginPath(), path(sphere), context.fillStyle = "#7a8096", context.fill();
+		context.beginPath(), path(land), context.fillStyle = "#273157", context.fill();
 		context.beginPath(), path(sphere), context.stroke();
 		};
 	renderEarth();
@@ -141,7 +147,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 			
             
 			<!-- Bio start-->
-			<section class="module" id="bio">
+			<section class="module" id="bio" style="padding-top: 20px">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
@@ -179,7 +185,6 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 								<a>Flask</a>
 								
 							</div>
-			    <br>
                             <div class="accordion" id="accordion1">
 								<div class="accordion-item">
 									   <div class="accordion-item-header">
