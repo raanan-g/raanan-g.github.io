@@ -145,7 +145,11 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 				
 			</section>
 			
-            
+            <style>
+				.tag-cloud .a {
+					
+				}
+			</style>
 			<!-- Bio start-->
 			<section class="module" id="bio" style="padding-top: 80px; background: linear-gradient(0deg, rgba(247,251,252,1) 0%, rgba(247,251,252,1) 77%, rgba(186,210,222,1) 100%)">
                 <div class="container">
@@ -156,33 +160,34 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 							    <hr class="m-t-30 m-b-30">
 								<h6 class="single-portfolio-title">Raanan Gurewitsch</h6><small>Pronounced <i>RAH-AH-NON GRR-WITCH</i></small>
 								<div class="tag-cloud">
-									<a target="_blank" href="https://www.linkedin.com/in/raanan-gurewitsch-1ab739129/">LinkedIn</a>
-									<a target="_blank" href="https://github.com/raanan-g">Github (personal)</a>
-									<a target="_blank" href="https://github.com/geominr">Github (Geominr)</a>
-									<a target="_blank" href="https://medium.com/@rgurewitsch">Blog</a>  
-									<a target="_blank" href="http://geominr.com">Geominr.com</a>
-									<a href="">Photography</a>
+									<a style="color:darkblue" target="_blank" href="mailto:raanan@geominr.com">raanan@geominr.com</a>
+									<a style="color:darkblue" target="_blank" href="https://www.linkedin.com/in/raanan-gurewitsch-1ab739129/">LinkedIn</a>
+									<a style="color:darkblue" target="_blank" href="https://github.com/raanan-g">Github (personal)</a>
+									<a style="color:darkblue" target="_blank" href="https://github.com/geominr">Github (Geominr)</a>
+									<a style="color:darkblue" target="_blank" href="https://medium.com/@rgurewitsch">Blog</a>  
+									<a style="color:darkblue" target="_blank" href="http://geominr.com">Geominr.com</a>
+									<a style="color:darkblue" href="#photos">Photography</a>
 								</div>
                             </div>
                         </div>
                         <div class="col-md-10">
-							<div class="tag-cloud" style="font-size: 14px">
-								<a style="width:23%">Geospatial Information Systems</a>
-								<a style="width:23%">Machine Learning</a>
-								<a style="width:23%">Data Visualization</a>
-								<a style="width:23%">Web Development</a>
+							<div class="tag-cloud">
+								<a style="width:23%; color:darkblue">GIS &amp; Mapping</a>
+								<a style="width:23%; color:darkblue">Machine Learning</a>
+								<a style="width:23%; color:darkblue">Data Visualization</a>
+								<a style="width:23%; color:darkblue">Web Development</a>
 								
-								<a>Python</a>
-								<a>R</a>
-								<a>geopandas</a>
-								<a>Open data</a>
-								<a>scikit-learn</a>
-								<a>Mapbox</a>
-								<a>D3</a>
-								<a>HTML/CSS</a>
-								<a>Javascript</a>
-								<a>Django</a>
-								<a>Flask</a>
+								<a style="color:darkblue">Python</a>
+								<a style="color:darkblue">R</a>
+								<a style="color:darkblue">geopandas</a>
+								<a style="color:darkblue">Open data</a>
+								<a style="color:darkblue" >scikit-learn</a>
+								<a style="color:darkblue">Mapbox</a>
+								<a style="color:darkblue">D3</a>
+								<a style="color:darkblue">HTML/CSS</a>
+								<a style="color:darkblue">Javascript</a>
+								<a style="color:darkblue">Django</a>
+								<a style="color:darkblue">Flask</a>
 								
 							</div>
                             <div class="accordion" id="accordion1">
@@ -824,7 +829,7 @@ toggle_data();
 			<!-- Bio end-->
 			
 			<!-- Hero-->
-            <section class="module-cover-slides" data-module-cover-slides-options="{&quot;animation&quot;: &quot;fade&quot;}">
+            <section id="photos" class="module-cover-slides" data-module-cover-slides-options="{&quot;animation&quot;: &quot;fade&quot;}">
 			   <ul class="slides-container">
 				   <li class="parallax" data-overlay="0.5">
 					   <img src="assets/images/IMG_4197.jpg" alt="">
