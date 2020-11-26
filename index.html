@@ -86,7 +86,7 @@ var canvas = d3.select("canvas"),
     context = canvas.node().getContext("2d"),
 	center = [width/2, height];
 	
-var projection = d3.geoMercator()
+var projection = d3.geoStereographic()
     .scale((height+200) / 2)
     .translate([width/2.5, height])
     .precision(0.1);
