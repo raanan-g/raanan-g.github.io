@@ -65,7 +65,7 @@
 			<section class="module" id="crazymap" style="padding: 0px 0px">
 
 <!-- Globe -->
-<div id="content"  onmouseover="mouseOver()" onclick="mapclick()" width="100%" style="height:500px">
+<div id="content" data-toggle="tooltip" data-placement="top" title="Drag and Zoom to See the World Differently" onmouseover="mouseOver()" onclick="mapclick()" width="100%" style="height:500px; background-color:#273157">
 	<canvas width="2000" height="510"></canvas>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -145,11 +145,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 				
 			</section>
 			
-            <style>
-				.tag-cloud .a {
-					
-				}
-			</style>
+            
 			<!-- Bio start-->
 			<section class="module" id="bio" style="padding-top: 80px; background: linear-gradient(0deg, rgba(247,251,252,1) 0%, rgba(247,251,252,1) 77%, rgba(186,210,222,1) 100%)">
                 <div class="container">
@@ -250,7 +246,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 													</p>
 													<hr>
 													<p>Designed and prototyped new web interface and developed API documentation for Mortality Information and Research Analytics system, which allows for generation of mortality rates for any cause of death in the United States between 1950 and 2017.</p>
-													
+													<h6 style="color:darkgrey">Explore Data by Cause of Death</h6>
 													<script src="https://d3js.org/queue.v1.min.js"></script>
 													<script src="https://d3js.org/d3.v4.min.js"></script>
 													<script src="assets/js/grid-map.js"></script>
@@ -643,8 +639,8 @@ toggle_data();
 													<div class="comment-meta-date">March 2018 - April 2019</div>
 												</div>
 												<div class="comment-content">
-													<p>Developed a City-wide software inventory analysis to inform software procurement strategy based on installation and utilization data from over 1,000 on-premise computers. 
-													<br>Led ‘capabilities mapping’ sessions with clients from all City departments to incorporate user experience and other qualitative data into software procurement strategy.</p>
+													<p>Developed a City-wide software inventory analysis to inform software procurement strategy based on installation and utilization data from over 1,000 on-premise computers.</p> 
+													<p>Led ‘capabilities mapping’ sessions with clients from all City departments to incorporate user experience and other qualitative data into software procurement strategy.</p>
 													<p>Developed business cases and gathered technical requirements for large-scale digital transformations and upgrades such as timekeeping and scheduling (identified over $2 million in potential annual savings) and Windows 10 rollout.</p>
 												</div>
 											</div>
