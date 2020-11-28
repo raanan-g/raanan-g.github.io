@@ -45,7 +45,7 @@
 								<a href="#accordion1"><span class="menu-item-span">Resume</span></a>
 								
                             <!--<li><a href="#demos"><span class="menu-item-span">Demos</span></a></li>-->
-							<li><a href="#"><span class="menu-item-span">Photography</span></a></li>
+							<li><a href="#photos"><span class="menu-item-span">Photography</span></a></li>
 
                         </ul>
                     </div>
@@ -167,7 +167,17 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
                             </div>
                         </div>
                         <div class="col-md-10">
-							<div class="tag-cloud">
+							<!---->
+							
+                            <div class="accordion" id="accordion1">
+								<div class="accordion-item">
+								   <div class="accordion-item-header">
+									  <h6><a class="accordion-link collapsed" data-toggle="collapse" href="#collapse-0" aria-expanded="false">Skills and Extpertise</a></h6>
+								   </div>
+								   <div class="collapse" id="collapse-0" data-parent="#accordion1">
+									  <div class="accordion-item-body">
+						  
+						  <div class="tag-cloud">
 								<a style="width:23%; color:darkblue">GIS &amp; Mapping</a>
 								<a style="width:23%; color:darkblue">Machine Learning</a>
 								<a style="width:23%; color:darkblue">Data Visualization</a>
@@ -186,7 +196,12 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 								<a style="color:darkblue">Flask</a>
 								
 							</div>
-                            <div class="accordion" id="accordion1">
+										  
+									   
+
+									  </div>
+								   </div>
+							   </div>
 								<div class="accordion-item">
 									   <div class="accordion-item-header">
 										  <h6><a  class="accordion-link" data-toggle="collapse" href="#collapse-1" class="" aria-expanded="true">Experience</a></h6>
@@ -202,7 +217,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 												<div class="comment-meta-date">Jan 2020 - Present</div>
 											</div>
 											<div class="comment-content">
-												<p>Geominr is an independent consultancy for geospatial data, research and design services</p>
+												<p>Geominr is an independent consultancy for geospatial data, research and design services.</p>
 												<h6>Clients:</h6>
 												<!-- Comment-->
 										<div class="comment">
@@ -241,9 +256,35 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 													<div class="comment-meta-date">August 2019 - March 2020</div>
 												</div>
 												<div class="comment-content">
-													<p>Contributed to research on environmental health and mortality data, including spatial modeling 
+													<p>Contributed to research in environmental health, including spatial modeling 
 														of household lead water contamination risk, radon and lung cancer, and the Covid-19 pandemic.
 													</p>
+													<a id="wllsbtn" href="#wlls" onclick="showwlls()">Pittsburgh Water Lead Levels</a>
+														&nbsp;&nbsp;&nbsp;
+														<!--<a href="#radon" onclick="showradon()">Radon in Allegheny County</a>-->
+														&nbsp;&nbsp;&nbsp;
+														<a id="btns" href="#btns" style="display: none" onclick="hidemaps()">Hide</a>
+													
+													<script>
+													function showradon () {
+														document.getElementById('wlls').style.display='none';
+														//document.getElementById('radon').style.display='block';
+														document.getElementById('btns').style.display='block';
+													}
+													function showwlls () {
+														document.getElementById('wllsbtn').style.display='none';
+														document.getElementById('wlls').style.display='block';
+														document.getElementById('btns').style.display='block';
+													}
+													function hidemaps () {
+														document.getElementById('wllsbtn').style.display='block';
+														//document.getElementById('radonbtn').style.display='block';
+														document.getElementById('wlls').style.display='none';
+														document.getElementById('btns').style.display='none';
+													}
+													</script>
+													<iframe id="wlls" src="https://geominr.github.io/pgh-lead-levels" width="100%" height="500px" style="display: none"></iframe>
+													<!--<iframe id="radon" src="http://geominr.com" width="100%" height="500px" style="display: none"></iframe>-->
 													<hr>
 													<p>Designed and prototyped new web interface and developed API documentation for Mortality Information and Research Analytics system, which allows for generation of mortality rates for any cause of death in the United States between 1950 and 2017.</p>
 													<h6 style="color:darkgrey">Explore Data by Cause of Death</h6>
@@ -620,12 +661,12 @@ toggle_data();
 												<div class="comment-content">
 													<h6><a href="https://blog.codingitforward.com/meet-the-2019-fellows-u-s-census-bureau-52b87c481bb1">Civic Digital Fellowship - 3rd Cohort - Coding it Forward</a> - <a href="https://blog.codingitforward.com/alumni-spotlight-raanan-gurewitsch-cdf-19-19ea446b22b6">Alumni Spotlight</a></h6>
 													<p>Developed <a target="_blank" href="https://github.com/codingitforward/cdfdemoday2019/blob/master/Machine_Learning_Optimization_Commodity_Flow_Survey.pdf" title="Census-OpenStreetMap Pipeline">
-														machine learning pipeline</a> to flag businesses that are out-of-scope for the US Commodity Flow Survey, a 
-														Department of Transportation survey of 100,000 businesses taken every five years to track 
+														machine learning pipeline</a> that sources data from OpenStreetMap in machine learning compatibale format.</p>
+														<p>Used machine learning to identify businesses in US Commodity Flow Survey (CFS) sample that were least likely to report shipping, leading to 70% reduction in 
+															sample error rate and approximately $450,000 in respondent burden and administrative costs.</p>
+														<p>The CFS is Department of Transportation survey of 100,000 businesses taken every five years to track 
 														commodity shipments from origin to destination across the United States.</p>
-													<p>The software collects and parses enormous files from OpenStreetMap to gather landuse, road and building 
-														footprint data specific to business locations.
-													</p>
+													
 												</div>
 												
 											</div>
