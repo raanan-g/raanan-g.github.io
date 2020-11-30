@@ -65,7 +65,7 @@
 			<section class="module" id="crazymap" style="padding: 0px 0px">
 
 <!-- Globe -->
-<div id="content" data-toggle="tooltip" data-placement="top" title="Drag and Zoom to See the World Differently" onmouseover="mouseOver()" onclick="mapclick()" width="100%" style="height:500px; background-color:#273157">
+<div id="content" title="Drag and Zoom to See the World Differently" onmouseover="mouseOver()" onclick="mapclick()" width="100%" style="height:500px; background-color:#273157">
 	<canvas width="2000" height="510"></canvas>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -85,6 +85,9 @@ var canvas = d3.select("canvas"),
     height = canvas.property("height"),
     context = canvas.node().getContext("2d"),
 	center = [width/2, height];
+
+const tRotation = 48000; //30s per rotation
+const rotationOn = true;
 	
 var projection = d3.geoStereographic()
     .scale((height+200) / 2)
@@ -96,10 +99,11 @@ var path = d3.geoPath()
     .context(context);
 
 var circle = d3.geoCircle();
-	
+/*
 canvas.call(d3.zoom()
     .on("start", zoomstarted)
     .on('zoom', zoomed));
+
 
 var renderEarth = function() {},
     v0, // Mouse position in Cartesian coordinates at start of drag gesture.
@@ -121,7 +125,7 @@ function zoomed() {
     projection.rotate(r1);
 
     renderEarth();
-}
+}*/
 
 d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, worldData) {
 	  if (error) throw error;
@@ -137,17 +141,41 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 		};
 	renderEarth();
 });
+// vars for timer
+var tNew, dt, steps, pos, tOld, oldPos;
+tOld = 0;
+oldPos = 0;
+d3.timer(myTimer);
 
+function myTimer(now) {
+	if (rotationOn) {
+	  tNew = now;
+      dt = tOld - tNew;
+      steps = dt * 360 / tRotation;
 
+      pos = oldPos - steps //the earth rotates towards the east
+	  
+	  if (pos <= -180) {pos = pos+360}
 
+      projection.rotate([pos, 0]);
+      renderEarth();
 
+      tOld = tNew;
+      oldPos = pos;
+		
+	}
+	else {
+		tOld = now;
+	}
+}
+	
 </script>
 				
 			</section>
 			
             
 			<!-- Bio start-->
-			<section class="module" id="bio" style="padding-top: 80px; background: linear-gradient(0deg, rgba(247,251,252,1) 0%, rgba(247,251,252,1) 77%, rgba(186,210,222,1) 100%)">
+			<section class="module" id="bio" style="padding-top: 80px; background: linear-gradient(0deg, rgba(22,37,64,1) 0%, rgba(31,37,60,1) 65%, rgba(39,49,87,1) 100%)">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
@@ -169,7 +197,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
                         <div class="col-md-10">
 							<!---->
 							
-                            <div class="accordion" id="accordion1">
+                            <div class="accordion accordion-primary" id="accordion1">
 								<div class="accordion-item">
 								   <div class="accordion-item-header">
 									  <h6><a class="accordion-link collapsed" data-toggle="collapse" href="#collapse-0" aria-expanded="false">Skills and Extpertise</a></h6>
@@ -177,6 +205,271 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 								   <div class="collapse" id="collapse-0" data-parent="#accordion1">
 									  <div class="accordion-item-body">
 						  
+										 <div class="row">
+										  <div class="col-md-4">
+											 <h6>Geospatial Information Systems</h6>
+											<hr><div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Python geopandas
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Spatial statistics
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>OpenStreetMap
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Mapbox Studio
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>ArcGIS
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Network Analysis
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Rgdal
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+										</div>
+										  <div class="col-md-4">
+											 <h6>Data Analytics &amp; Machine Learning</h6>
+											 <hr><div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Python pandas
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Python scikit-learn
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Python matplotlib
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>SQL
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Web scraping (BeautifulSoup)
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Web scraping (Selenium)
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+										</div>
+										  <div class="col-md-4">
+											 <h6>Web Development &amp; Cloud</h6>
+											  <hr>
+											  <div class="progress-item">
+											   <div class="progress-title">
+												   <h6>HTML/CSS
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>JavaScript
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Flask
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Django web framework
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>Google App Engine
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											<div class="progress-item">
+											   <div class="progress-title">
+												   <h6>AWS
+													   <span class="pull-right">
+														   <span class="progress-number"></span>
+														   %
+													   </span>
+												   </h6>
+											   </div>
+											   <div class="progress">
+												   <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+											   </div>
+											</div>
+											
+										</div>
+										  </div> 
+										  
+										  
+
+<!--
+										  
 						  <div class="tag-cloud">
 								<a style="width:23%; color:darkblue">GIS &amp; Mapping</a>
 								<a style="width:23%; color:darkblue">Machine Learning</a>
@@ -195,7 +488,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 								<a style="color:darkblue">Django</a>
 								<a style="color:darkblue">Flask</a>
 								
-							</div>
+							</div>-->
 										  
 									   
 
@@ -317,8 +610,9 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 														</div>
 													   </div>
 													   <div class="col-md-6">
-														<a target="_blank" href="https://github.com/geominr/moira-api" class="btn btn-outline-primary btn-sm">MOIRA API Docs</a>
-													   <small style="padding-left: 20px"><a href="https://github.com/raanan-g/PHDL/blob/master/data/moira_data_example.csv" download>View Dataset</a></small>
+														<a target="_blank" href="https://github.com/geominr/moira-api" class="btn btn-outline btn-sm">MOIRA API Docs</a>
+													   <a target="_blank" style="padding-left: 20px" href="https://github.com/raanan-g/PHDL/blob/master/data/moira_data_example.csv" class="btn btn-outline btn-sm">View Dataset</a>
+													   
 													   </div>
 																		   </div>
 
@@ -389,7 +683,7 @@ function postData(d, cod, sel, maxm) {
 		.attr('transform','translate(0,'+(2 * options.rectHeight)+')')
 		.call(d3.axisBottom(x).tickSize(0))
 		.selectAll('text')
-			.attr('fill','black')
+			.attr('fill','#fff')
 			.attr('transform','translate(-10,0)rotate(-30)')
 			.style('text-anchor', 'end');
 	// Add Y axis
@@ -397,8 +691,10 @@ function postData(d, cod, sel, maxm) {
 	  .domain([0, maxm])
 	  .range([(2 * options.rectHeight) , 0]);
 	bar_svg.append("g")
-	  .call(d3.axisLeft(y).tickSize(0).ticks(4));
+	  .call(d3.axisLeft(y).tickSize(0).ticks(4))
+		.selectAll('text').attr('fill','#fff');
 	bar_svg.append('text')
+		.attr('fill','#fff')
 		.attr("text-anchor", "end")
 		.attr("transform", "rotate(-90)")
 		.attr("y", -margin.left+25)
@@ -415,7 +711,7 @@ function postData(d, cod, sel, maxm) {
 		.attr("y", function(z) { return y(z.rate); })
 		.attr("width", x.bandwidth())
 		.attr("height", function(z) { return (2 * options.rectHeight) - y(z.rate); })
-		.attr("fill", "#46608f");
+		.attr("fill", "#769cbf");
 
 	
 	
@@ -431,6 +727,7 @@ function toggle_data() {
     d3.selectAll('rect')
        .style('opacity',0);
     d3.selectAll('text')
+	   .style('color','#fff')
        .style('opacity',0);
     sEnter.append('rect')
       .attr('width', options.rectWidth)
@@ -504,7 +801,7 @@ function toggle_data() {
 		d3.select(this)
 			.transition()
 			.style('stroke-width', 4)
-			.style('stroke', 'black');
+			.style('stroke', '#fff');
 		
 		var sel = document.getElementById('select-cod').value;
 		if (sel=="Cancer"){
@@ -570,7 +867,7 @@ function toggle_data() {
 sEnter.append('text')
   .attr('x', options.rectWidth/2)
   .attr('y', options.rectHeight/2 + 2)
-  .attr('fill', 'black')
+  .attr('fill', '#fff')
   .style('text-anchor', 'middle')
   .style('cursor', 'pointer')
   .text(function(d){return d.key;})
@@ -578,7 +875,7 @@ sEnter.append('text')
 		d3.select(this.parentNode).selectAll('rect')
 			.transition()
 			.style('stroke-width', 4)
-			.style('stroke', 'black');
+			.style('stroke', '#fff');
 		var sel = document.getElementById('select-cod').value;
 		if (sel=="Cancer"){
             var minm = 122;
@@ -661,7 +958,7 @@ toggle_data();
 												<div class="comment-content">
 													<h6><a href="https://blog.codingitforward.com/meet-the-2019-fellows-u-s-census-bureau-52b87c481bb1">Civic Digital Fellowship - 3rd Cohort - Coding it Forward</a> - <a href="https://blog.codingitforward.com/alumni-spotlight-raanan-gurewitsch-cdf-19-19ea446b22b6">Alumni Spotlight</a></h6>
 													<p>Developed <a target="_blank" href="https://github.com/codingitforward/cdfdemoday2019/blob/master/Machine_Learning_Optimization_Commodity_Flow_Survey.pdf" title="Census-OpenStreetMap Pipeline">
-														machine learning pipeline</a> that sources data from OpenStreetMap in machine learning compatibale format.</p>
+														software</a> that sources data from OpenStreetMap in machine learning compatibale format.</p>
 														<p>Used machine learning to identify businesses in US Commodity Flow Survey (CFS) sample that were least likely to report shipping, leading to 70% reduction in 
 															sample error rate and approximately $450,000 in respondent burden and administrative costs.</p>
 														<p>The CFS is Department of Transportation survey of 100,000 businesses taken every five years to track 
@@ -692,9 +989,9 @@ toggle_data();
 								</div>
 								<div class="accordion-item">
 								   <div class="accordion-item-header">
-									  <h6><a class="accordion-link collapsed" data-toggle="collapse" href="#collapse-0" aria-expanded="false">Education</a></h6>
+									  <h6><a class="accordion-link collapsed" data-toggle="collapse" href="#collapse-01" aria-expanded="false">Education</a></h6>
 								   </div>
-								   <div class="collapse" id="collapse-0" data-parent="#accordion1">
+								   <div class="collapse" id="collapse-01" data-parent="#accordion1">
 									   <div class="accordion-item-body">
 											<div class="accordion-item-body">
 										<h5 class="comments-title">Bachelor of Philosophy in Information Science, University of Pittsburgh</h5>
@@ -715,7 +1012,6 @@ toggle_data();
 												
 											</div>
 											
-											<div class="children">
 												<div class="comment">
 													<div class="comment-author"><img class="avatar" src="assets/images/pitthonors.png" alt=""></div>
 													<div class="comment-body">
@@ -745,8 +1041,8 @@ toggle_data();
 													<div class="comment-author"><img class="avatar" src="assets/images/dfa.png" alt=""></div>
 													<div class="comment-body">
 														<div class="comment-meta">
-															<div class="comment-meta-author"><a href="#">Design for America</a></div>
-															<div class="comment-meta-date"><a href="#">October 2016 - August 2018</a></div>
+															<div class="comment-meta-author">Design for America</div>
+															<div class="comment-meta-date">October 2016 - August 2018</div>
 														</div>
 														<div class="comment-content">
 															<h6><b>Studio Founder and President</b></h6>
@@ -767,8 +1063,8 @@ toggle_data();
 													<div class="comment-author"><img class="avatar" src="assets/images/sydbus.png" alt=""></div>
 													<div class="comment-body">
 														<div class="comment-meta">
-															<div class="comment-meta-author"><a href="#">Study Abroad: Syndey, Australia</a></div>
-															<div class="comment-meta-date"><a href="#">August - November 2017</a></div>
+															<div class="comment-meta-author">Study Abroad: Syndey, Australia</div>
+															<div class="comment-meta-date">August - November 2017</div>
 														</div>
 														<div class="comment-content">
 															<h6><b>Research Intern,</b> University of Sydney Business School</h6>
@@ -782,8 +1078,8 @@ toggle_data();
 													<div class="comment-author"><img class="avatar" src="assets/images/school-business.jpg" alt=""></div>
 													<div class="comment-body">
 														<div class="comment-meta">
-															<div class="comment-meta-author"><a href="#">Study Abroad: Tel Aviv, Israel</a></div>
-															<div class="comment-meta-date"><a href="#">June - August 2016</a></div>
+															<div class="comment-meta-author">Study Abroad: Tel Aviv, Israel</a></div>
+															<div class="comment-meta-date">June - August 2016</div>
 														</div>
 														<div class="comment-content">
 															<h6><b>Israel Summer Business Academy,</b> Washington University in St. Louis</h6>
@@ -794,14 +1090,13 @@ toggle_data();
 														</div>
 													</div>
 </div>
-											</div>
 										</div>
 										<div class="comment">
 											<div class="comment-author"><img class="avatar" src="assets/images/yc.png" alt=""></div>
 											<div class="comment-body">
 												<div class="comment-meta">
 													<div class="comment-meta-author"><strong>Young Judaea Year Course in Israel</strong></div>
-													<div class="comment-meta-date"><a href="#">August 2014 - May 2015</a></div>
+													<div class="comment-meta-date">August 2014 - May 2015</div>
 												</div>
 												<div class="comment-content">
 													<p>Year Course is an academic and volunteering based gap year program, including 12 credits of coursework in Modern Hebrew, Jewish Art, Comparative Religions and History of Zionism, Israel and Palestine.</p>
@@ -866,7 +1161,7 @@ toggle_data();
 			<!-- Bio end-->
 			
 			<!-- Hero-->
-            <section id="photos" class="module-cover-slides" data-module-cover-slides-options="{&quot;animation&quot;: &quot;fade&quot;}">
+            <section style="height:900px" id="photos" class="module-cover-slides" data-module-cover-slides-options="{&quot;animation&quot;: &quot;fade&quot;}">
 			   <ul class="slides-container">
 				   <li class="parallax" data-overlay="0.5">
 					   <img src="assets/images/IMG_4197.jpg" alt="">
