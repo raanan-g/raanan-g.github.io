@@ -65,7 +65,7 @@
 			<section class="module" id="crazymap" style="padding: 0px 0px">
 
 <!-- Globe -->
-<div id="content" title="Drag and Zoom to See the World Differently" onmouseover="mouseOver()" onclick="mapclick()" width="100%" style="height:500px; background-color:#273157">
+<div id="content" width="100%" style="height:500px; background-color:#273157">
 	<canvas width="2000" height="510"></canvas>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -135,8 +135,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world
 
 	  renderEarth = function() {
 		context.clearRect(0, 0, width, height);
-		context.beginPath(), path(sphere), context.fillStyle = "#7a8096", context.fill();
-		context.beginPath(), path(land), context.fillStyle = "#273157", context.fill();
+		context.beginPath(), path(sphere), context.globalAlpha = 0.5, context.fillStyle = "#01040d", context.fill();
+		context.beginPath(), path(land), context.globalAlpha = 1, context.fillStyle = "#273157", context.fill();
 		context.beginPath(), path(sphere), context.stroke();
 		};
 	renderEarth();
