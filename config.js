@@ -6,41 +6,20 @@ var config = {
     title: "Raanan Gurewitsch",
     byline: 'Digital Portfolio',
     quicklinks: '',
-    description: '<a href="Raanan Resume.pdf" target="_blank"><button class="button-17">Resume <u>&#8681;</u></button></a><br><br><br><br><br><br><small>Keep scrolling for more About Me</small>',
+    description: '<a href="Raanan Resume.pdf" target="_blank"><button class="button-17">Resume&nbsp;<u>&#8681;</u></button></a><br><br><br><br><br><br><small>Keep scrolling for more About Me</small>',
     chapters: [
       // intro
       {
           id: 'intro',
           title: '',
           image: '',
-          imageCredit: '',
-          description: "I am a technologist based in New York City with interest and expertise in environmental policy, spatial data science, product management.<br><br>I like to spend my free time with family and friends enjoying food, nature, music and movies.",
+          imageCredit: '<a href="mapping-use-cases.html"><button class="button-17">Mapping Use Cases</u></button></a>',
+          description: "I am a technologist based in New York City with interest and expertise in product management, spatial data science and environmental health.<br><br>I enjoy using data and digital maps as a medium for data-driven story telling. My professional experience involves many different use cases of geospatial analysis, modeling and interactive mapping.<br><br>Click below for some examples of my work:",
           location: {
               center: [-73.97349,40.7557],
               zoom: 13,
               pitch: 0,
               bearing: 0
-          },
-          onChapterEnter: [
-              {
-                  layer: '',
-                  opacity: 0.75
-              }
-          ],
-          onChapterExit: [
-              {
-                  layer: 'pws-lsl-estimated',
-                  opacity: 0
-              }
-          ],
-          chapterLegend: {
-            type:'bubble',
-            legend:{
-              "color":"#e8aa44",
-              "sizes":[0.5, 1.7, 2.5, 5, 10, 20],
-              "breaks":[0, 2500, 5000, 10000, 20000, 50000],
-              "title": "Estimated Lead Service Lines"
-            }
           }
       },
       // BlueConduit
@@ -49,33 +28,12 @@ var config = {
           title: '',
           image: '',
           imageCredit: '<video controls="" style="display:flex" width="100%" src="https://blueconduit.com/wp-content/uploads/2022/04/file.mp4"></video>',
-          description: "I am currently Senior Product Manager at BlueConduit, where I lead product design and R&D for the company’s geospatial decision intelligence platform for lead (Pb) water service line replacement.<br><br>We are building open source machine learning tools that will accelerate removal of environmental hazards from communities around the country, with the support of <a href='https://blueconduit.com/bcxgoogle/' target='_blank'>Google.org</a> and the Rockefeller Foundation.",
+          description: "I am currently a data scientist at BlueConduit, where I specialize in digital mapping and geospattial decision intelligence.<br><br>BlueConduit is building open source machine learning tools that help accelerate removal of lead (Pb) water service pipes from communities around the country, with the support of <a href='https://blueconduit.com/bcxgoogle/' target='_blank'>Google.org</a>, the Rockefeller Foundation, Natural Resources Defense Council and Environmental Policy Innovation Center.",
           location: {
               center: [-73.97349,40.7557],
               zoom: 13,
               pitch: 0,
               bearing: 0
-          },
-          onChapterEnter: [
-              {
-                  layer: '',
-                  opacity: 0.75
-              }
-          ],
-          onChapterExit: [
-              {
-                  layer: '',
-                  opacity: 0
-              }
-          ],
-          chapterLegend: {
-            type:'',
-            legend:{
-              "color":"#e8aa44",
-              "sizes":[],
-              "breaks":[],
-              "title": ""
-            }
           }
       },
       // PHDL
@@ -84,33 +42,12 @@ var config = {
             title: '',
             image: 'cluster_results.gif',
             imageCredit: '',
-            description: 'Before BlueConduit, I lived in Pittsburgh, PA and worked at the Public Health Dynamics Laboratory at the University of Pittsburgh School of Public Health.<br><br>My job included data collection and geospatial data analysis for environmental health research on lead in water, US mortality trends and the Opioid Crisis.',
+            description: 'Before BlueConduit, I lived in Pittsburgh, PA and worked at the Public Health Dynamics Laboratory at the University of Pittsburgh School of Public Health.<br><br>My job included data collection and geospatial data analysis for environmental health research on lead in water, US mortality trends and the Opioid Crisis.<br>I recently created a <a href="https://geominr.github.io/appalachia-deaths-of-despair" target="_blank">story map</a> with data from the study.',
             location: {
               center: [-79.93842,40.44525],
               zoom: 13,
               pitch:40,
               bearing:-30
-            },
-            onChapterEnter: [
-                {
-                    layer: '',
-                    opacity: 0.75
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: '',
-                    opacity: 0
-                }
-            ],
-            chapterLegend: {
-              type:'',
-              legend:{
-                "color":"#e8aa44",
-                "sizes":[],
-                "breaks":[],
-                "title": ""
-              }
             }
         },
       // Census
@@ -125,27 +62,6 @@ var config = {
               zoom: 13.0,
               pitch:60,
               bearing:-50
-            },
-            onChapterEnter: [
-                {
-                    layer: '',
-                    opacity: 0.75
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: '',
-                    opacity: 0
-                }
-            ],
-            chapterLegend: {
-              type:'',
-              legend:{
-                "color":"#e8aa44",
-                "sizes":[],
-                "breaks":[],
-                "title": ""
-              }
             }
         },
       // Thesis
@@ -154,33 +70,12 @@ var config = {
             title: '',
             image: '',
             imageCredit: '',
-            description: 'I graduated with my Bachelor of Philosophy in Information Science from the Univeristy of Pittsburgh in 2019, where I minored in Economics and participated in the Honors Community Based Research Fellowship.<br><br>My <a href="http://d-scholarship.pitt.edu/36505/" target="_blank">baccaulaureate thesis</a> focused on the application of machine learning to lead service line replacement in Pittsburgh. It was cited by American Water Works Association in a 2020 review of strategies and approaches to the problem.',
+            description: 'I graduated with my Bachelor of Philosophy in Information Science from the Univeristy of Pittsburgh in 2019, where I minored in Economics and participated in the Honors Community Based Research Fellowship.<br><br>My <a href="http://d-scholarship.pitt.edu/36505/" target="_blank">baccaulaureate thesis</a> focused on the application of machine learning to lead service line replacement in Pittsburgh.<br><br>My thesis has been cited by the American Water Works Association in 2020 and the State of New Jersey in 2022 when recommending methods for locating and replacing lead service lines.',
             location: {
               center: [-79.93842,40.44525],
               zoom: 13,
               pitch:40,
               bearing:-30
-            },
-            onChapterEnter: [
-                {
-                    layer: '',
-                    opacity: 0.75
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: '',
-                    opacity: 0
-                }
-            ],
-            chapterLegend: {
-              type:'',
-              legend:{
-                "color":"#e8aa44",
-                "sizes":[],
-                "breaks":[],
-                "title": ""
-              }
             }
         },
       // Israel
@@ -195,28 +90,45 @@ var config = {
               zoom: 9.0,
               pitch:60,
               bearing:-30
-            },
-            onChapterEnter: [
-                {
-                    layer: '',
-                    opacity: 0.75
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: '',
-                    opacity: 0
-                }
-            ],
-            chapterLegend: {
-              type:'',
-              legend:{
-                "color":"#e8aa44",
-                "sizes":[],
-                "breaks":[],
-                "title": ""
-              }
             }
         },
+    ],
+    usecases: [
+      {
+        id: "use-case-0",
+        title:"Story Map: How the Infrasturcture Bill Comes Up Short on Replacing Lead Water Pipes",
+        description:"In this story map, I use data from across the US to show how states in the Midwest need more from the 2021 Infrastructure Bill.",
+        link:"https://blueconduit.com/funding-lead-pipe-removal"
+      },
+      // {
+      //   id: "use-case-1",
+      //   title:"LeadOut: Find the status of lead pipes in your home",
+      //   description:"BlueConduit's publicly searchable map of lead service line data, tailored to residents in under-resourced communities. I was the project lead for this product, which was built by members of the BlueConduit-Google.org Fellowship.",
+      //   link:"https://leadout.blueconduit.com"
+      // },
+      {
+        id: "use-case-2",
+        title:"Mapping America's Water Service Area Boundaries",
+        description:"A truly gargantuan effort across multiple organizations including BlueConduit, SimpleLab, EPIC and Georgetown Univeristy, to geolocate every public water system in the United States. My contribution has been the merging of auxiliary geospatial datasets to the national <a href='https://www.policyinnovation.org/technology/water-utility-service-area-boundaries' target='_blank'>water service area boundaries</a> file and creating interactive mapping tools to explore the data.",
+        link:"https://blueconduit.github.io/nationwidemap"
+      },
+      {
+        id: "use-case-3",
+        title:"Toledo (OH) Water Service Line Map",
+        description:"Launched in 2021, this live interactive map let’s residents of the City of Toledo (OH) search for their home in the city’s water service line inventory to see the status of their water service line.",
+        link:"https://map.blueconduit.com/map"
+      },
+      {
+        id: "use-case-4",
+        title:"Mapping the Opioid Crisis in Appalachia",
+        description:"Under Prof. Saumyadipta Pyne of the University of Pittsburgh, I studied the burden of mortality from deaths of despair: suicide, accidental overdose and alcohol-related deaths over the past four decades. ",
+        link:"https://geominr.github.io/appalachia-deaths-of-despair"
+      },
+      {
+        id: "use-case-5",
+        title:"Mapping Pittsburgh’s Water Lead Levels",
+        description:"Under Prof. Saumyadipta Pyne at the University of Pittsburgh, I studied the levels of toxic lead detected from voluntary tap water sampling in the City of Pittsburgh. ",
+        link:"https://geominr.github.io/pgh-lead-levels"
+      },
     ]
 };

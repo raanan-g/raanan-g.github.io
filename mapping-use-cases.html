@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Raanan Gurewitsch</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id='map'></div>
+    <div id='story'></div>
+    <script src='config.js'></script>
+    <script>
+    var alignments = {
+        'left': 'lefty',
+        'center': 'centered',
+        'right': 'righty'
+    }
+    var usecasediv = document.createElement('div');
+    usecasediv.classList.add(alignments[config.alignment]);
+    usecasediv.setAttribute('id', 'usecases');
+    config.usecases.forEach((usecase, idx) => {
+        /* These first two variables will hold each vignette, the chapter
+        element will go in the container element */
+        var container = document.createElement('div');
+        var chapter = document.createElement('div');
+        chapter.setAttribute("class","chapter");
+
+        var link = document.createElement('a');
+        link.setAttribute("href",usecase.link);
+        link.setAttribute("class","use-case-link");
+
+        var title = document.createElement('h1');
+        title.innerText = usecase.title;
+        link.appendChild(title);
+
+        var description = document.createElement("p");
+        description.innerHTML= usecase.description;
+        chapter.appendChild(link);
+        chapter.appendChild(description);
+
+        // Sets the id for the vignette and adds the step css attribute
+        container.setAttribute('id', usecase.id);
+        container.classList.add('step-uc');
+        if (idx === 0) {
+            container.classList.add('active');
+        }
+        // Sets the overall theme to the chapter element
+        chapter.classList.add(config.theme);
+
+        container.appendChild(chapter);
+        usecasediv.appendChild(container);
+    });
+    document.getElementById('story').appendChild(usecasediv);
+    // Instantiates the scrollama function
+    var scroller = scrollama();
+    // Adds the Mapbox access token
+    mapboxgl.accessToken = config.accessToken;
+    // Honestly, don't know what this does
+    const transformRequest = (url) => {
+        const hasQuery = url.indexOf("?") !== -1;
+        const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";
+        return {
+            url: url + suffix
+        }
+    }
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: config.style,
+        center: config.chapters[0].location.center,
+        zoom: config.chapters[0].location.zoom,
+        bearing: config.chapters[0].location.bearing,
+        pitch: config.chapters[0].location.pitch,
+        scrollZoom: false,
+        transformRequest: transformRequest
+    });
+    map.on("load", function () {
+        // Setup the instance, pass callback functions
+        scroller
+            .setup({
+                step: '.step-uc',
+                offset: 0.5,
+                progress: true
+            })
+            .onStepEnter(response => {
+                var chapter = config.chapters.find(chap => chap.id === response.element.id);
+                response.element.classList.add('active');
+            })
+            .onStepExit(response => {
+                var chapter = config.chapters.find(chap => chap.id === response.element.id);
+                response.element.classList.remove('active');
+            });
+    });
+    </script>
+</body>
+
+</html>
