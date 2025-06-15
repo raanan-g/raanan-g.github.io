@@ -208,7 +208,7 @@ story.appendChild(features);
 // Adds the Mapbox access token
 mapboxgl.accessToken = config.accessToken;
 
-// Honestly, don't know what this does
+// Adds a query parameter for Mapbox usage tracking
 const transformRequest = (url) => {
     const hasQuery = url.indexOf("?") !== -1;
     const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";
