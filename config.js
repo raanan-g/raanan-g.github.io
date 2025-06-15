@@ -96,7 +96,7 @@ var config = {
     usecases: [
       {
         id: "use-case-0",
-        title:"Story Map: How the Infrasturcture Bill Comes Up Short on Replacing Lead Water Pipes",
+        title:"Story Map: How the Infrastructure Bill Comes Up Short on Replacing Lead Water Pipes",
         description:"In this story map, I use data from across the US to show how states in the Midwest need more from the 2021 Infrastructure Bill.",
         link:"https://blueconduit.com/funding-lead-pipe-removal"
       },
