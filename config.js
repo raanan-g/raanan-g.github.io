@@ -53,8 +53,8 @@ var config = {
       {
           id: 'blueconduit',
           title: '',
-          image: '',
-          imageCredit: '<video controls="" style="display:flex" width="100%" src="https://blueconduit.com/wp-content/uploads/2022/04/file.mp4"></video>',
+          image: 'https://blueconduit.com/wp-content/uploads/2024/05/bg-logo-white-1.png.webp',
+          imageCredit: '',
           description: "From 2020 to 2025, I worked as a data scientist at BlueConduit, where I developed machine learning software that helped accelerate removal of lead (Pb) water service pipes from over 70 communities around the country, with the support of <a href='https://blueconduit.com/bcxgoogle/' target='_blank'>Google.org</a>, the Rockefeller Foundation, Natural Resources Defense Council and Environmental Policy Innovation Center.",
           location: {
             center: [-73.961488, 40.671134],
