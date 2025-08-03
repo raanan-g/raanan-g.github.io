@@ -18,7 +18,7 @@ body {
   margin: auto;
   min-height: 50vh;
   padding: 2vh 2vh 5vh 2vh;
-  background-color: rgba(2, 31, 6, 0.5);
+  background-color: rgba(1, 8, 17, 0.75);
   color:#ffffff
 }
 #features {
@@ -87,12 +87,55 @@ body {
   padding: 1em;
   margin: 0px auto;
 }
-#quicklinks {
-  text-align: center;
-  /* width: 180px; */
-  display: flex;
-  justify-content: space-between;
-  /* margin: 0px 41%; */
+
+#logo {
+  position: fixed;    /* Fixed position at the top left */
+  background: linear-gradient(90deg, rgba(2, 8, 18, 0.3) 0%, rgba(2, 8, 18, 0.2) 34%, rgba(2, 8, 18, 0.1) 67%, rgba(2, 8, 18, 0) 100%);
+  top: 0;
+  /* left: 1.25rem; */
+  display: flex;      /* Flexbox for side-by-side layout */
+  align-items: center;/* Vertical center alignment in flexbox */
+  justify-content: center; /* Horizontal center alignment in flexbox */
+  cursor: pointer;    /* Changes cursor to indicate it's clickable */
+  width: 280px;
+  padding-left: 1.25rem;
+}
+
+#logo img {
+  width: 20%;
+  flex: 1;            /* Flex-grow to distribute space */
+  text-align: center; /* Center align text for label */
+} 
+
+#logo label {
+  flex: 5;            /* Flex-grow to distribute space */
+  text-align: left; /* Center align text for label */
+  color:#ffffff;
+  cursor: pointer;    /* Changes cursor to indicate it's clickable */
+  margin-left: 10px;
+}
+
+.wide-menu {
+  position: fixed;    /* Fixed position at the top left */
+  z-index: 1000;
+  background: linear-gradient(90deg, rgba(2, 8, 18, 0) 0%, rgba(2, 8, 18, 0.1) 16%, rgba(2, 8, 18, 0.2) 33%, rgba(2, 8, 18,0.3) 66%);
+  top: 0;
+  right: 0rem;
+  display: flex;      /* Flexbox for side-by-side layout */
+  align-items: center;/* Vertical center alignment in flexbox */
+  justify-content: center; /* Horizontal center alignment in flexbox */
+  cursor: pointer;    /* Changes cursor to indicate it's clickable */
+  width: -webkit-fill-available;
+  margin-left: 40%;
+  /* margin-right: 20px; */
+  padding: 20px;
+}
+
+.wide-menu label {
+  flex: 5;            /* Flex-grow to distribute space */
+  text-align: center; /* Center align text for label */
+  color:#ffffff;
+  cursor: pointer;    /* Changes cursor to indicate it's clickable */
 }
 
 a, a:hover, a:visited {
@@ -119,7 +162,7 @@ a, a:hover, a:visited {
   background-color: #444;
 }
 .chapter {
-  background-color: rgba(2, 31, 6, 0.75);
+  background-color: rgba(1, 8, 17, 0.75);
   color:#ffffff
 }
 .step {
@@ -165,11 +208,11 @@ a, a:hover, a:visited {
   border-style: none;
   box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
   box-sizing: border-box;
-  color: #3c4043;
+  color: rgba(1, 8, 17, 0.95);;
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 48px;
