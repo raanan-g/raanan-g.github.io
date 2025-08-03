@@ -17,7 +17,7 @@ body {
 #header {
   margin: auto;
   min-height: 50vh;
-  padding: 2vh 2vh 5vh 2vh;
+  padding: 20vh 2vh 5vh 2vh;
   background-color: rgba(1, 8, 17, 0.75);
   color:#ffffff
 }
@@ -126,6 +126,7 @@ body {
   justify-content: center; /* Horizontal center alignment in flexbox */
   cursor: pointer;    /* Changes cursor to indicate it's clickable */
   width: -webkit-fill-available;
+  max-width: 350px;
   margin-left: 40%;
   /* margin-right: 20px; */
   padding: 20px;
