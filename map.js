@@ -32,6 +32,9 @@ function setLayerOpacity(layer) {
         map.setPaintProperty(layer.layer, prop, layer.opacity);
     });
 }
+function setLayerVisibility(layer) {
+    map.setLayoutProperty(layer.layer, 'visibility', layer.visibility);
+}
 
 /* Next, these variables and functions create the story and vignette html
 elements, and populate them with the content from the config.js file.
@@ -265,7 +268,7 @@ map.on("load", function () {
                 marker.setLngLat(chapter.location.center);
             }
             if (chapter.onChapterEnter.length > 0) {
-                chapter.onChapterEnter.forEach(setLayerOpacity);
+                chapter.onChapterEnter.forEach(setLayerVisibility);
             }
             if ("legendElement" in chapter) {
               document.body.appendChild(chapter.legendElement);
@@ -278,7 +281,7 @@ map.on("load", function () {
             var chapter = config.chapters.find(chap => chap.id === response.element.id);
             response.element.classList.remove('active');
             if (chapter.onChapterExit.length > 0) {
-                chapter.onChapterExit.forEach(setLayerOpacity);
+                chapter.onChapterExit.forEach(setLayerVisibility);
             }
             if (document.getElementById('legend')) {
               document.body.removeChild(document.getElementById('legend'));
