@@ -63,6 +63,27 @@ var config = {
             bearing: -40.61
           }
       },
+      {
+        id: 'trees',
+        title: '',
+        image: '',
+        imageCredit: '<a href="https://raanangurewitsch.com/great-trees-of-new-york-map" target="_blank"><button class="button-17">Read Story Map</button></a>',
+        description: "I love exploring the world through data driven story maps, like the Great Trees of New York Map, which I digitized to be able explore the popular list in my favorite medium.",
+        location: {
+          center: [-73.947830, 40.700528],
+          zoom: 10.57,
+          pitch: 54.85,
+          bearing: 0
+        },
+        onChapterEnter: [{
+          layer:'nyctrees-9c4lnh',
+          visibility:'visible'
+        }],
+        onChapterExit: [{
+            layer:'nyctrees-9c4lnh',
+            visibility:'none'
+        }],
+    },
       // // PHDL
       // {
       //       id: 'phdl',
